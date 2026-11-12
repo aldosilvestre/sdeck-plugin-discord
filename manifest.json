@@ -1,9 +1,16 @@
 {
   "id": "discord",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "protocol_version": 1,
   "name": "Discord",
   "executable": "run",
+  "requirements": [
+    {"kind": "command", "name": "python3", "version": "3 (tested with 3.14)", "description": "Runs the plugin; standard library only, no pip packages"},
+    {"kind": "command", "name": "hyprctl", "optional": true, "description": "Hyprland only: sends the mute/deafen shortcut to the Discord window"},
+    {"kind": "service", "name": "Hyprland session", "optional": true, "description": "A running Hyprland instance, found in $XDG_RUNTIME_DIR/hypr/"},
+    {"kind": "service", "name": "discord.com (HTTPS)", "optional": true, "description": "Network access to the Discord REST API, used by send-message"},
+    {"kind": "file", "name": "$XDG_CONFIG_HOME/sdeck-plus/plugins/discord/token", "optional": true, "description": "Your bot token, owner-only (0600); never stored by the app"}
+  ],
   "actions": [
     {
       "id": "toggle-mute",
